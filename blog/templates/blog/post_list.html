@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
     <title>블로그 글 목록</title>
 </head>
 <body>
-<h1><a href="/"> 장고걸스 블로그 </a></h1>
+<div class="page-header">
+    <h1><a href="/"> 장고걸스 블로그 </a></h1>
+</div>
 <!--장고 템플릿 언어라고 구글링 -->
 {%comment %}
     {{ posts }}  <br/><br/>{# 이것이 장고 템플릿 변수(변수의 내용을 출력할 때 사용) #}
@@ -19,13 +24,18 @@
         {{ post }} <br/>
     {% endfor %} {# 여기부터 for루프 끝#}
 {% endcomment %}
-
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8"> <!-- 부트스트랩 그리드 시스템-->
         {% for post in posts %}
-        <div>
+        <div class="post">
             <h2><a href="">{{post.title}}</a></h2>
             <p>게시일시: {{post.published_date}}</p>
             <p> {{post.text | linebreaksbr}}</p>
         </div>
         {% endfor %}
+        </div>
+    </div>
+</div>
 </body>
 </html>
