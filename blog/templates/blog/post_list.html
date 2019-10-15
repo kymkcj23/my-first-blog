@@ -1,11 +1,17 @@
 <!DOCTYPE html>
+{% load static %} {# 템플릿 태그로 정적파일을 메모리로 불러들인다.#}
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <title>블로그 글 목록</title>
 </head>
 <body>
 <h1><a href="/"> 장고걸스 블로그 </a></h1>
+<!--장고 템플릿 언어라고 구글링 -->
 {%comment %}
     {{ posts }}  <br/><br/>{# 이것이 장고 템플릿 변수(변수의 내용을 출력할 때 사용) #}
     {#아래 루프 처리 부분이 장고 템플릿 태그#}
